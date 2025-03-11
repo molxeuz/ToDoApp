@@ -29,16 +29,16 @@ class TodoBook:
 
 # 6
     def add_todo(self, title: str, description: str) -> int:
-        #
-        #
-        #
-        #
+        id_code = len(self.todos) + 1
+        todo = Todo(id_code, title, description)
+        self.todos[id_code] = todo
+        return id_code
+
+# 7
+    def pending_todos(self) -> list[Todo]:
+        
 
 """
-# 7
-    def pending_todos(self) -> list:
-        #
-
 # 8
     def compled_todos(self) -> list:
         #
