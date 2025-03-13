@@ -38,12 +38,20 @@ class TodoBook:
     def pending_todos(self) -> list[Todo]:
         return [todo for todo in self.todos.values() if not todo.completed]
 
-"""
 # 8
-    def compled_todos(self) -> list:
-        #
+    def completed_todos(self) -> list[Todo]:
+        return [todo for todo in self.todos.values() if todo.completed]
 
 # 9
-    def tags_todo_count(self) -> dict[int]:
-        #
-"""
+    def tags_todo_count(self) -> dict[str, int]:
+
+        tag_counts: dict[str, int] = {}
+
+        for todo in self.todos.values():
+            for tag in todo.tags:
+                if tag in tag_counts:
+                    tag_counts[tag] += 1
+                else:
+                    tag_counts[tag] = 1
+
+        return tag_counts
